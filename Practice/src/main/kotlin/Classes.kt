@@ -1,3 +1,5 @@
+import kotlin.random.Random
+
 class Classes (val id: Int, var email: String = "example@gmail.com") {
     val category: String = "work"
     fun printId(){
@@ -6,7 +8,14 @@ class Classes (val id: Int, var email: String = "example@gmail.com") {
 }
 
 data class User(val name: String, val id: Int)
+data class Employee(val name:String, var salary:Int)
 
+class RandomEmployeeGenerator(var minSalary:Int,var maxSalary:Int){
+    val names=listOf("John", "Mary", "Ann", "Paul","Jane","lisa")
+    fun generateEmployee()=
+        Employee(names.random(), Random.nextInt(from=minSalary,until=maxSalary))
+
+}
 fun main() {
     val contact=Classes(1,"marry@gmail.com")
     println(contact.email)
@@ -24,11 +33,26 @@ fun main() {
     println(userA)
     // compare instance data class
     println("userA==userB -> ${userA==userB}")
-    println("userA==userC -> ${userA==userC}")
+    println("userA.equals(userC) -> ${userA.equals(userC)}")
 
     // copy instance data class
     println(userA.copy())
     println(userA.copy("Max"))
     println(userA.copy(id=3))
+
+//    Practice
+
+    val emp = Employee("Mary", 20)
+    println(emp)
+    emp.salary += 10
+    println(emp)
+
+    val empGen = RandomEmployeeGenerator(10, 30)
+    println(empGen.generateEmployee())
+    println(empGen.generateEmployee())
+    println(empGen.generateEmployee())
+    empGen.minSalary = 50
+    empGen.maxSalary = 100
+    println(empGen.generateEmployee())
 
 }
