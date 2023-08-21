@@ -9,7 +9,8 @@ android {
 
     defaultConfig {
         applicationId = "com.example.drawingapp"
-        minSdk = 24
+        minSdk = 31
+        //noinspection EditedTargetSdkVersion
         targetSdk = 33
         versionCode = 1
         versionName = "1.0"
@@ -36,8 +37,8 @@ android {
 }
 
 dependencies {
-
-    implementation("androidx.core:core-ktx:1.9.0")
+    implementation("androidx.activity:activity-ktx:1.4.0-alpha01")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.4.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.9.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
