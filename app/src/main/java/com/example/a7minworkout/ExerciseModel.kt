@@ -32,6 +32,14 @@ class ExerciseModel (
             this.image = image
         }
 
+//        fun getGif(): Int{
+//            return gif
+//        }
+//
+//        fun setGif(gif: Int){
+//            this.gif = gif
+//        }
+
         fun getIsCompleted(): Boolean {
             return isCompleted
         }

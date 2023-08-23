@@ -44,14 +44,16 @@ class ExerciseActivity : AppCompatActivity() {
         setRestProgressbar()
     }
     private fun setupExerciseView(){
-        binding?.ivGif?.visibility=View.GONE
+//        binding?.ivGif?.visibility=View.GONE
         binding?.flProgressBar?.visibility= View.GONE
-        binding?.tvTitle?.text="EXERCISE"
+        binding?.tvTitle?.text=exerciseList!![currentExercisePos].getName()
 
         val layoutParams = binding?.tvTitle?.layoutParams as ConstraintLayout.LayoutParams
         layoutParams.bottomToTop = binding?.flExerciseBar?.id!!
         binding?.tvTitle?.layoutParams=layoutParams
         binding?.tvTitle?.requestLayout()
+        binding?.ivGif?.setImageResource(exerciseList!![currentExercisePos].getImage())
+
 
         binding?.flExerciseBar?.visibility= View.VISIBLE
         if(exerciseTimer!=null){
@@ -87,7 +89,15 @@ class ExerciseActivity : AppCompatActivity() {
             }
 
             override fun onFinish() {
-                Toast.makeText(this@ExerciseActivity, "30 sec Exercise completed.", Toast.LENGTH_SHORT).show()
+                if(currentExercisePos < exerciseList?.size!! - 1){
+                    setupRestView()
+                }else {
+                    Toast.makeText(
+                        this@ExerciseActivity,
+                        "30 sec Exercise completed.",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
             }
         }.start()
     }
