@@ -15,7 +15,6 @@
         android:contentDescription="@string/start_image"
         android:src="@drawable/img_main_page"
         app:layout_constraintEnd_toEndOf="parent"
-
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
