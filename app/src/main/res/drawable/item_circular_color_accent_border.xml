@@ -5,7 +5,9 @@
         android:width="5dp"
         android:color="@color/primary"
         />
-    <solid
-        android:color="@color/white"
+    <gradient
+        android:angle="45"
+        android:startColor="@color/round_gradient_button_start_color"
+        android:endColor="@color/round_gradient_button_end_color"
         />
 </shape>

@@ -39,6 +39,7 @@ android {
 }
 
 dependencies {
+    implementation("com.airbnb.android:lottie:4.1.0")
     implementation("pl.droidsonroids.gif:android-gif-drawable:1.2.27")
     implementation("androidx.core:core-ktx:1.10.1")
     implementation("androidx.appcompat:appcompat:1.6.1")

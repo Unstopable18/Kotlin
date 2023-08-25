@@ -5,14 +5,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="@dimen/main_screen_main_layout_padding"
-    android:background="@color/white"
+    android:background="@drawable/background_img"
     tools:context=".MainActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.5"
+        android:background="@drawable/bg_gradient"
+        />
 
     <ImageView
         android:id="@+id/imgView"
         android:layout_width="match_parent"
         android:layout_height="220dp"
         android:contentDescription="@string/start_image"
+        android:layout_marginTop="26dp"
         android:src="@drawable/img_main_page"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,7 +35,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgView"
-        app:layout_constraintVertical_bias="0.060000002"
+        app:layout_constraintVertical_bias="0.39"
         tools:ignore="MissingConstraints">
 
         <TextView
@@ -35,8 +43,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="@string/start"
-            android:textColor="@color/design_default_color_primary"
-            android:textSize="22sp"
+            android:fontFamily="sans-serif-smallcaps"
+            android:textColor="@color/white"
+            android:textSize="30sp"
             android:textStyle="bold"
 
             />
