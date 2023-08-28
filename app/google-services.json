@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "736797288418",
+    "project_id": "fir-signinauthentication-b6dff",
+    "storage_bucket": "fir-signinauthentication-b6dff.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:736797288418:android:8da7d33c6cf4ff06b8bbbb",
+        "android_client_info": {
+          "package_name": "com.example.firebasesigninauthentication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "736797288418-brmgla5r05gjvlnq8i9egvdft9dej7t0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlAsO4kt2KS5eXPjlZvVFDbYfjc-D5CcU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "736797288418-brmgla5r05gjvlnq8i9egvdft9dej7t0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
