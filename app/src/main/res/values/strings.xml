@@ -2,7 +2,5 @@
     <string name="app_name">FirebaseSignInAuthentication</string>
     <string name="facebook_app_id">836263808105928</string>
     <string name="fb_login_protocol_scheme">fb836263808105928</string>
-    <string name="facebook_client_token">56789</string>
-
-
+    <string name="facebook_client_token">5e860cdf6609ec6f8285eaee5cf18e50</string>
 </resources>
