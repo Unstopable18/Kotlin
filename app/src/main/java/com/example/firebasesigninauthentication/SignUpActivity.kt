@@ -36,9 +36,9 @@ class SignUpActivity : AppCompatActivity() {
                     firebaseAuth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener {
                         if (it.isSuccessful) {
                             firebaseAuth.signOut()
-                            val intent = Intent(this, SignInActivity::class.java)
-//                            Toast.makeText(this, "$email\nSigned up Successfully.", Toast.LENGTH_SHORT).show()
-                            intent.putExtra("Message", "$email\nSigned up Successfully.")
+                            val intent = Intent(this, LoginOptionActivity::class.java)
+                            Toast.makeText(this, "$email\nSigned up Successfully.", Toast.LENGTH_SHORT).show()
+//                            intent.putExtra("Message", "$email\nSigned up Successfully.")
                             startActivity(intent)
                         } else {
                             Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
