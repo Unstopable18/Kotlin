@@ -79,7 +79,7 @@ class AddHappyPlaceActivity : AppCompatActivity(), View.OnClickListener {
                         @Suppress("DEPRECATION")
                         val selectedImageBitmap = MediaStore.Images.Media.getBitmap(this.contentResolver, contentURI)
 
-                        val saveImageToInternalStorage = saveImageToInternalStorage(selectedImageBitmap)
+                        saveImageToInternalStorage = saveImageToInternalStorage(selectedImageBitmap)
                         Log.e("Saved Image : ", "Path :: $saveImageToInternalStorage")
 
                         binding?.ivPlaceImage?.setImageBitmap(selectedImageBitmap)
@@ -91,7 +91,7 @@ class AddHappyPlaceActivity : AppCompatActivity(), View.OnClickListener {
             } else if (requestCode == CAMERA) {
 
                 val thumbnail: Bitmap = data!!.extras!!.get("data") as Bitmap
-                val saveImageToInternalStorage = saveImageToInternalStorage(thumbnail)
+                saveImageToInternalStorage = saveImageToInternalStorage(thumbnail)
                 Log.e("Saved Image : ", "Path :: $saveImageToInternalStorage")
                 binding?.ivPlaceImage?.setImageBitmap(thumbnail)
             }
@@ -174,21 +174,6 @@ class AddHappyPlaceActivity : AppCompatActivity(), View.OnClickListener {
                 }
             }).onSameThread()
             .check()
-    }
-    private fun Bitmap.saveImageToInternalStorage(bitmap: Bitmap): Uri {
-        val wrapper = ContextWrapper(applicationContext)
-        var file = wrapper.getDir(IMAGE_DIRECTORY, Context.MODE_PRIVATE)
-        file = File(file, "${UUID.randomUUID()}.jpg")
-
-        try {
-            val stream: OutputStream = FileOutputStream(file)
-            compress(Bitmap.CompressFormat.JPEG, 100, stream)
-            stream.flush()
-            stream.close()
-        } catch (e: IOException) {
-            e.printStackTrace()
-        }
-        return Uri.parse(file.absolutePath)
     }
     private fun showRationalDialogForPermissions() {
         AlertDialog.Builder(this)
