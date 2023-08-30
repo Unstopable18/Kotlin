@@ -39,7 +39,8 @@ android {
 }
 
 dependencies {
-    implementation("im.dino:dbinspector:3.4.1@aar")
+    debugImplementation("com.infinum.dbinspector:dbinspector:5.4.9")
+    releaseImplementation("com.infinum.dbinspector:dbinspector-no-op:5.4.9")
     implementation("com.karumi:dexter:6.2.3")
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
