@@ -39,10 +39,12 @@ android {
 }
 
 dependencies {
+    // https://github.com/hdodenhof/CircleImageView
+    implementation("de.hdodenhof:circleimageview:3.0.1")
     debugImplementation("com.infinum.dbinspector:dbinspector:5.4.9")
     releaseImplementation("com.infinum.dbinspector:dbinspector-no-op:5.4.9")
     implementation("com.karumi:dexter:6.2.3")
-    implementation("androidx.core:core-ktx:1.9.0")
+    implementation("androidx.core:core-ktx:1.10.1")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.9.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
