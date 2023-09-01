@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin")
 }
 
 android {
@@ -41,6 +42,8 @@ android {
 dependencies {
     // https://github.com/hdodenhof/CircleImageView
     implementation("de.hdodenhof:circleimageview:3.0.1")
+    implementation("com.google.android.libraries.places:places:3.2.0")
+    implementation("com.google.android.gms:play-services-maps:18.1.0")
     debugImplementation("com.infinum.dbinspector:dbinspector:5.4.9")
     releaseImplementation("com.infinum.dbinspector:dbinspector-no-op:5.4.9")
     implementation("com.karumi:dexter:6.2.3")

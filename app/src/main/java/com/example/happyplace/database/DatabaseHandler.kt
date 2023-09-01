@@ -110,16 +110,14 @@ class DatabaseHandler(context: Context) :
         contentValues.put(
             KEY_DESCRIPTION,
             happyPlace.description
-        ) // HappyPlaceModelClass DESCRIPTION
+        )
         contentValues.put(KEY_DATE, happyPlace.date) // HappyPlaceModelClass DATE
         contentValues.put(KEY_LOCATION, happyPlace.location) // HappyPlaceModelClass LOCATION
         contentValues.put(KEY_LATITUDE, happyPlace.latitude) // HappyPlaceModelClass LATITUDE
         contentValues.put(KEY_LONGITUDE, happyPlace.longitude) // HappyPlaceModelClass LONGITUDE
 
         // Updating Row
-        val success =
-            db.update(TABLE_HAPPY_PLACE, contentValues, KEY_ID + "=" + happyPlace.id, null)
-        //2nd argument is String containing nullColumnHack
+        val success = db.update(TABLE_HAPPY_PLACE, contentValues, KEY_ID + "=" + happyPlace.id, null)
 
         db.close() // Closing database connection
         return success
