@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "com.example.weatherapp-mergeDebugResources-30:/layout/activity_main.xml",
+        "source": "com.example.weatherapp-main-33:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.example.weatherapp-mergeDebugResources-30:/layout/dialog_custom_progress.xml",
+        "source": "com.example.weatherapp-main-33:/layout/dialog_custom_progress.xml"
+    }
+]

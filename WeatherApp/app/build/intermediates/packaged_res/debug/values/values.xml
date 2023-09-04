@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorAccent">#03DAC5</color>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="divider_background">#e0e0e0</color>
+    <color name="main_screen_content_background_color">#EFEFEF</color>
+    <color name="primary_text_color">#363A43</color>
+    <color name="secondary_text_color">#7A8089</color>
+    <dimen name="card_view_content_padding">10dp</dimen>
+    <dimen name="card_view_corner_radius">8dp</dimen>
+    <dimen name="card_view_elevation">5dp</dimen>
+    <dimen name="card_view_marginStartEnd">5dp</dimen>
+    <dimen name="card_view_marginTop">16dp</dimen>
+    <dimen name="divider_height">1dp</dimen>
+    <dimen name="divider_margin">16dp</dimen>
+    <dimen name="identification_image_marginEnd">10dp</dimen>
+    <dimen name="identification_image_size">50dp</dimen>
+    <dimen name="label_text_size">18sp</dimen>
+    <dimen name="main_content_padding_progress_dialog">10dp</dimen>
+    <dimen name="main_screen_content_padding">16dp</dimen>
+    <dimen name="progress_bar_marginEnd">10dp</dimen>
+    <dimen name="progress_bar_size">50dp</dimen>
+    <dimen name="progress_bar_text_size">16sp</dimen>
+    <dimen name="sunrise_marginTop">10dp</dimen>
+    <dimen name="sunset_marginStart">10dp</dimen>
+    <dimen name="value_text_size">16sp</dimen>
+    <string name="action_refresh">Refresh</string>
+    <string name="app_name">Weather App</string>
+    <string name="image_contentDescription">image</string>
+    <string name="miles_per_hour">miles/hour</string>
+    <string name="please_wait">Please Wait…</string>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+    <style name="Base.Theme.WeatherApp" parent="Theme.Material3.DayNight.NoActionBar">
+        
+        
+    </style>
+    <style name="Theme.WeatherApp" parent="Base.Theme.WeatherApp"/>
+</resources>

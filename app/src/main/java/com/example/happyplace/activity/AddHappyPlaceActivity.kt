@@ -44,6 +44,7 @@ import java.text.SimpleDateFormat
 import java.util.Locale
 import java.util.UUID
 import android.annotation.SuppressLint
+import android.os.Build
 import com.google.android.gms.location.*
 
 
@@ -166,12 +167,19 @@ class AddHappyPlaceActivity : AppCompatActivity(), View.OnClickListener {
         binding?.etdate?.setText(sdf.format(cal.time).toString()) // A selected date using format which we have used is set to the UI.
     }
     private fun choosePhotoFromGallery() {
-        Dexter.withActivity(this).withPermissions(
-//            Manifest.permission.READ_EXTERNAL_STORAGE,
-//            Manifest.permission.WRITE_EXTERNAL_STORAGE,
-            Manifest.permission.READ_MEDIA_IMAGES,
-            Manifest.permission.CAMERA
-        )
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            Dexter.withActivity(this).withPermissions(
+                Manifest.permission.READ_MEDIA_IMAGES,
+                Manifest.permission.CAMERA
+            )
+
+        }else{
+            Dexter.withActivity(this).withPermissions(
+                Manifest.permission.READ_EXTERNAL_STORAGE,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                Manifest.permission.CAMERA
+            )
+        }
             .withListener(object : MultiplePermissionsListener {
                 override fun onPermissionsChecked(report: MultiplePermissionsReport) {
 

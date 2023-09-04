@@ -1,0 +1,124 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.weatherapp"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="24"
+9        android:targetSdkVersion="33" />
+10
+11    <!-- To access the Internet -->
+12    <uses-permission android:name="android.permission.INTERNET" />
+12-->/Users/cemtrex/Desktop/Kotlin/WeatherApp/app/src/main/AndroidManifest.xml:6:5-67
+12-->/Users/cemtrex/Desktop/Kotlin/WeatherApp/app/src/main/AndroidManifest.xml:6:22-64
+13    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+13-->/Users/cemtrex/Desktop/Kotlin/WeatherApp/app/src/main/AndroidManifest.xml:7:5-79
+13-->/Users/cemtrex/Desktop/Kotlin/WeatherApp/app/src/main/AndroidManifest.xml:7:22-76
+14    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+14-->/Users/cemtrex/Desktop/Kotlin/WeatherApp/app/src/main/AndroidManifest.xml:8:5-76
+14-->/Users/cemtrex/Desktop/Kotlin/WeatherApp/app/src/main/AndroidManifest.xml:8:22-73
+15
+16    <!-- To access the location -->
+17    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+17-->/Users/cemtrex/Desktop/Kotlin/WeatherApp/app/src/main/AndroidManifest.xml:11:5-79
+17-->/Users/cemtrex/Desktop/Kotlin/WeatherApp/app/src/main/AndroidManifest.xml:11:22-76
+18    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+18-->/Users/cemtrex/Desktop/Kotlin/WeatherApp/app/src/main/AndroidManifest.xml:12:5-81
+18-->/Users/cemtrex/Desktop/Kotlin/WeatherApp/app/src/main/AndroidManifest.xml:12:22-78
+19
+20    <permission
+20-->[androidx.core:core:1.9.0] /Users/cemtrex/.gradle/caches/transforms-3/3c11ddf1f1ffbda5ee4d54edb6c4ee68/transformed/core-1.9.0/AndroidManifest.xml:22:5-24:47
+21        android:name="com.example.weatherapp.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+21-->[androidx.core:core:1.9.0] /Users/cemtrex/.gradle/caches/transforms-3/3c11ddf1f1ffbda5ee4d54edb6c4ee68/transformed/core-1.9.0/AndroidManifest.xml:23:9-81
+22        android:protectionLevel="signature" />
+22-->[androidx.core:core:1.9.0] /Users/cemtrex/.gradle/caches/transforms-3/3c11ddf1f1ffbda5ee4d54edb6c4ee68/transformed/core-1.9.0/AndroidManifest.xml:24:9-44
+23
+24    <uses-permission android:name="com.example.weatherapp.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+24-->[androidx.core:core:1.9.0] /Users/cemtrex/.gradle/caches/transforms-3/3c11ddf1f1ffbda5ee4d54edb6c4ee68/transformed/core-1.9.0/AndroidManifest.xml:26:5-97
+24-->[androidx.core:core:1.9.0] /Users/cemtrex/.gradle/caches/transforms-3/3c11ddf1f1ffbda5ee4d54edb6c4ee68/transformed/core-1.9.0/AndroidManifest.xml:26:22-94
+25
+26    <application
+26-->/Users/cemtrex/Desktop/Kotlin/WeatherApp/app/src/main/AndroidManifest.xml:14:5-33:19
+27        android:allowBackup="true"
+27-->/Users/cemtrex/Desktop/Kotlin/WeatherApp/app/src/main/AndroidManifest.xml:15:9-35
+28        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+28-->[androidx.core:core:1.9.0] /Users/cemtrex/.gradle/caches/transforms-3/3c11ddf1f1ffbda5ee4d54edb6c4ee68/transformed/core-1.9.0/AndroidManifest.xml:28:18-86
+29        android:debuggable="true"
+30        android:extractNativeLibs="false"
+31        android:icon="@mipmap/ic_launcher"
+31-->/Users/cemtrex/Desktop/Kotlin/WeatherApp/app/src/main/AndroidManifest.xml:16:9-43
+32        android:label="@string/app_name"
+32-->/Users/cemtrex/Desktop/Kotlin/WeatherApp/app/src/main/AndroidManifest.xml:17:9-41
+33        android:roundIcon="@mipmap/ic_launcher_round"
+33-->/Users/cemtrex/Desktop/Kotlin/WeatherApp/app/src/main/AndroidManifest.xml:18:9-54
+34        android:supportsRtl="true"
+34-->/Users/cemtrex/Desktop/Kotlin/WeatherApp/app/src/main/AndroidManifest.xml:19:9-35
+35        android:testOnly="true"
+36        android:theme="@style/AppTheme" >
+36-->/Users/cemtrex/Desktop/Kotlin/WeatherApp/app/src/main/AndroidManifest.xml:20:9-40
+37        <activity
+37-->/Users/cemtrex/Desktop/Kotlin/WeatherApp/app/src/main/AndroidManifest.xml:22:9-31:20
+38            android:name="com.example.weatherapp.activities.MainActivity"
+38-->/Users/cemtrex/Desktop/Kotlin/WeatherApp/app/src/main/AndroidManifest.xml:23:13-52
+39            android:exported="true"
+39-->/Users/cemtrex/Desktop/Kotlin/WeatherApp/app/src/main/AndroidManifest.xml:25:13-36
+40            android:screenOrientation="portrait" >
+40-->/Users/cemtrex/Desktop/Kotlin/WeatherApp/app/src/main/AndroidManifest.xml:24:13-49
+41            <intent-filter>
+41-->/Users/cemtrex/Desktop/Kotlin/WeatherApp/app/src/main/AndroidManifest.xml:26:13-30:29
+42                <action android:name="android.intent.action.MAIN" />
+42-->/Users/cemtrex/Desktop/Kotlin/WeatherApp/app/src/main/AndroidManifest.xml:27:17-69
+42-->/Users/cemtrex/Desktop/Kotlin/WeatherApp/app/src/main/AndroidManifest.xml:27:25-66
+43
+44                <category android:name="android.intent.category.LAUNCHER" />
+44-->/Users/cemtrex/Desktop/Kotlin/WeatherApp/app/src/main/AndroidManifest.xml:29:17-77
+44-->/Users/cemtrex/Desktop/Kotlin/WeatherApp/app/src/main/AndroidManifest.xml:29:27-74
+45            </intent-filter>
+46        </activity>
+47        <activity
+47-->[com.karumi:dexter:6.2.3] /Users/cemtrex/.gradle/caches/transforms-3/23949bf5273b0a189b76f1da2fb04e0f/transformed/dexter-6.2.3/AndroidManifest.xml:27:9-29:72
+48            android:name="com.karumi.dexter.DexterActivity"
+48-->[com.karumi:dexter:6.2.3] /Users/cemtrex/.gradle/caches/transforms-3/23949bf5273b0a189b76f1da2fb04e0f/transformed/dexter-6.2.3/AndroidManifest.xml:28:13-60
+49            android:theme="@style/Dexter.Internal.Theme.Transparent" />
+49-->[com.karumi:dexter:6.2.3] /Users/cemtrex/.gradle/caches/transforms-3/23949bf5273b0a189b76f1da2fb04e0f/transformed/dexter-6.2.3/AndroidManifest.xml:29:13-69
+50        <activity
+50-->[com.google.android.gms:play-services-base:18.1.0] /Users/cemtrex/.gradle/caches/transforms-3/51832279b7e38860e21ce0604de7f1fb/transformed/play-services-base-18.1.0/AndroidManifest.xml:20:9-22:45
+51            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+51-->[com.google.android.gms:play-services-base:18.1.0] /Users/cemtrex/.gradle/caches/transforms-3/51832279b7e38860e21ce0604de7f1fb/transformed/play-services-base-18.1.0/AndroidManifest.xml:20:19-85
+52            android:exported="false"
+52-->[com.google.android.gms:play-services-base:18.1.0] /Users/cemtrex/.gradle/caches/transforms-3/51832279b7e38860e21ce0604de7f1fb/transformed/play-services-base-18.1.0/AndroidManifest.xml:22:19-43
+53            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+53-->[com.google.android.gms:play-services-base:18.1.0] /Users/cemtrex/.gradle/caches/transforms-3/51832279b7e38860e21ce0604de7f1fb/transformed/play-services-base-18.1.0/AndroidManifest.xml:21:19-78
+54
+55        <meta-data
+55-->[com.google.android.gms:play-services-basement:18.1.0] /Users/cemtrex/.gradle/caches/transforms-3/4d94951d0a241afd9c6af03d350a7355/transformed/play-services-basement-18.1.0/AndroidManifest.xml:21:9-23:69
+56            android:name="com.google.android.gms.version"
+56-->[com.google.android.gms:play-services-basement:18.1.0] /Users/cemtrex/.gradle/caches/transforms-3/4d94951d0a241afd9c6af03d350a7355/transformed/play-services-basement-18.1.0/AndroidManifest.xml:22:13-58
+57            android:value="@integer/google_play_services_version" />
+57-->[com.google.android.gms:play-services-basement:18.1.0] /Users/cemtrex/.gradle/caches/transforms-3/4d94951d0a241afd9c6af03d350a7355/transformed/play-services-basement-18.1.0/AndroidManifest.xml:23:13-66
+58
+59        <provider
+59-->[androidx.emoji2:emoji2:1.2.0] /Users/cemtrex/.gradle/caches/transforms-3/6cab4aafa2a113f80dab115e00217c6b/transformed/emoji2-1.2.0/AndroidManifest.xml:24:9-32:20
+60            android:name="androidx.startup.InitializationProvider"
+60-->[androidx.emoji2:emoji2:1.2.0] /Users/cemtrex/.gradle/caches/transforms-3/6cab4aafa2a113f80dab115e00217c6b/transformed/emoji2-1.2.0/AndroidManifest.xml:25:13-67
+61            android:authorities="com.example.weatherapp.androidx-startup"
+61-->[androidx.emoji2:emoji2:1.2.0] /Users/cemtrex/.gradle/caches/transforms-3/6cab4aafa2a113f80dab115e00217c6b/transformed/emoji2-1.2.0/AndroidManifest.xml:26:13-68
+62            android:exported="false" >
+62-->[androidx.emoji2:emoji2:1.2.0] /Users/cemtrex/.gradle/caches/transforms-3/6cab4aafa2a113f80dab115e00217c6b/transformed/emoji2-1.2.0/AndroidManifest.xml:27:13-37
+63            <meta-data
+63-->[androidx.emoji2:emoji2:1.2.0] /Users/cemtrex/.gradle/caches/transforms-3/6cab4aafa2a113f80dab115e00217c6b/transformed/emoji2-1.2.0/AndroidManifest.xml:29:13-31:52
+64                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+64-->[androidx.emoji2:emoji2:1.2.0] /Users/cemtrex/.gradle/caches/transforms-3/6cab4aafa2a113f80dab115e00217c6b/transformed/emoji2-1.2.0/AndroidManifest.xml:30:17-75
+65                android:value="androidx.startup" />
+65-->[androidx.emoji2:emoji2:1.2.0] /Users/cemtrex/.gradle/caches/transforms-3/6cab4aafa2a113f80dab115e00217c6b/transformed/emoji2-1.2.0/AndroidManifest.xml:31:17-49
+66            <meta-data
+66-->[androidx.lifecycle:lifecycle-process:2.4.1] /Users/cemtrex/.gradle/caches/transforms-3/6d8370e7ef5c9d00905fe4ffa67063c2/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:31:13-33:52
+67                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+67-->[androidx.lifecycle:lifecycle-process:2.4.1] /Users/cemtrex/.gradle/caches/transforms-3/6d8370e7ef5c9d00905fe4ffa67063c2/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:32:17-78
+68                android:value="androidx.startup" />
+68-->[androidx.lifecycle:lifecycle-process:2.4.1] /Users/cemtrex/.gradle/caches/transforms-3/6d8370e7ef5c9d00905fe4ffa67063c2/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:33:17-49
+69        </provider>
+70    </application>
+71
+72</manifest>
