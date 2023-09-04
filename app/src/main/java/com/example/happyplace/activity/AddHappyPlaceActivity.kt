@@ -206,11 +206,19 @@ class AddHappyPlaceActivity : AppCompatActivity(), View.OnClickListener {
         // END
     }
     private fun takePhotoFromCamera() {
-        Dexter.withActivity(this).withPermissions(
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            Dexter.withActivity(this).withPermissions(
                 Manifest.permission.READ_MEDIA_IMAGES,
-//                Manifest.permission.WRITE_EXTERNAL_STORAGE,
                 Manifest.permission.CAMERA
             )
+
+        }else{
+            Dexter.withActivity(this).withPermissions(
+                Manifest.permission.READ_EXTERNAL_STORAGE,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                Manifest.permission.CAMERA
+            )
+        }
             .withListener(object : MultiplePermissionsListener {
                 override fun onPermissionsChecked(report: MultiplePermissionsReport?) {
                     // Here after all the permission are granted launch the CAMERA to capture an image.
