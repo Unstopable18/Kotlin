@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="Gradle: com.infinum.dbinspector:dbinspector:5.4.9@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/ed90fccb323e801d7c43c9d8a5e3bfcf/transformed/dbinspector-5.4.9/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/ed90fccb323e801d7c43c9d8a5e3bfcf/transformed/dbinspector-5.4.9/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/ed90fccb323e801d7c43c9d8a5e3bfcf/transformed/dbinspector-5.4.9/res" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.infinum.dbinspector/dbinspector/5.4.9/28a2e1f141e5ac5feb8fc6bd2dade077c9b5c96d/dbinspector-5.4.9-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.infinum.dbinspector/dbinspector/5.4.9/4f71546a3a7d9a1d66dc8ba4f8e1d69bf9c88c0/dbinspector-5.4.9-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
