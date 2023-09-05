@@ -41,13 +41,13 @@ object Constants {
                 isSelected = false
             )
         exerciseList.add(squat_reach)
-        val step_up_on_chair =
+        val seated_abs_circles =
             ExerciseModel(
-                6, "Step up on chair", "step_up_chair.json",
+                6, "Seated Abs Circles", "seated_abs_circles.json",
                 isCompleted = false,
                 isSelected = false
             )
-        exerciseList.add(step_up_on_chair)
+        exerciseList.add(seated_abs_circles)
         val pushup =
             ExerciseModel(
                 7, "Pushup", "pushup.json",
@@ -91,13 +91,7 @@ object Constants {
                 isSelected = false
             )
         exerciseList.add(reverse_crunches)
-        val seated_abs_circles =
-            ExerciseModel(
-                13, "Seated Abs Circles", "seated_abs_circles.json",
-                isCompleted = false,
-                isSelected = false
-            )
-        exerciseList.add(seated_abs_circles)
+
 
 
         return exerciseList

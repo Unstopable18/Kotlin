@@ -1,6 +1,7 @@
 package com.example.a7minworkout
 
 import android.app.Activity
+import android.app.Dialog
 import android.content.Intent
 import android.graphics.drawable.ColorDrawable
 import android.media.MediaPlayer
@@ -13,7 +14,9 @@ import android.view.View
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.a7minworkout.databinding.ActivityExerciseBinding
+import com.example.a7minworkout.databinding.DialogCustomBackConfirmationBinding
 import java.util.Locale
 
 
@@ -25,11 +28,12 @@ class ExerciseActivity : AppCompatActivity(),TextToSpeech.OnInitListener  {
     private var exerciseProgress=0
     private var exerciseList:ArrayList<ExerciseModel>?=null
     private var currentExercisePos=-1
-
     private var tts: TextToSpeech? = null
     private lateinit var mediaPlayer: MediaPlayer
     private var soundPlaying = false
-
+    private var exerciseTimerDuration:Long = 1
+    private var restTimerDuration:Long = 1
+    private var exerciseAdapter: ExerciseStatusAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,12 +47,31 @@ class ExerciseActivity : AppCompatActivity(),TextToSpeech.OnInitListener  {
         exerciseList=Constants.defaultExerciseList()
         tts = TextToSpeech(this, this)
         binding?.toolBarExercise?.setNavigationOnClickListener{
-            onBackPressed()
+            customDialogForBackButton()
         }
         binding?.lottieAnimationView?.playAnimation()
         setupRestView()
+        setupExerciseStatusRecyclerView()
 
     }
+
+    private fun customDialogForBackButton() {
+        val customDialog = Dialog(this)
+        val dialogBinding = DialogCustomBackConfirmationBinding.inflate(layoutInflater)
+
+        customDialog.setContentView(dialogBinding.root)
+
+        customDialog.setCanceledOnTouchOutside(false)
+        dialogBinding.tvYes.setOnClickListener {
+            this@ExerciseActivity.finish()
+            customDialog.dismiss() // Dialog will be dismissed
+        }
+        dialogBinding.tvNo.setOnClickListener {
+            customDialog.dismiss()
+        }
+        customDialog.show()
+    }
+
     private fun setupRestView(){
 
         binding?.tvTitle?.text="GET READY FOR EXERCISE"
@@ -61,7 +84,6 @@ class ExerciseActivity : AppCompatActivity(),TextToSpeech.OnInitListener  {
         speakOut("Let's rest for 10 Seconds now.")
         setRestProgressbar()
     }
-
     private fun setupExerciseView(){
 
         binding?.mainConstraint?.setBackgroundResource(R.drawable._459163)
@@ -81,11 +103,10 @@ class ExerciseActivity : AppCompatActivity(),TextToSpeech.OnInitListener  {
         speakOut(binding?.tvTitle?.text.toString())
         setExerciseProgressbar()
     }
-
     private fun setRestProgressbar(){
 
         binding?.progressBar?.progress=restProgress
-        restTimer=object:CountDownTimer(11000,1100){
+        restTimer=object:CountDownTimer(restTimerDuration*1100,1100){
             override fun onTick(p0: Long) {
                 restProgress++
                 binding?.progressBar?.progress=11-restProgress
@@ -98,12 +119,13 @@ class ExerciseActivity : AppCompatActivity(),TextToSpeech.OnInitListener  {
             override fun onFinish() {
                 stopSound()
                 currentExercisePos++
+                exerciseList!![currentExercisePos].setIsSelected(true) // Current Item is selected
+                exerciseAdapter!!.notifyDataSetChanged() // Notified the current item to adapter class to reflect it into UI.
                 setupExerciseView()
                 Toast.makeText(this@ExerciseActivity, "Lets start the Exercise.", Toast.LENGTH_SHORT).show()
             }
         }.start()
     }
-
     override fun onInit(status: Int) {
         if (status == TextToSpeech.SUCCESS) {
             val result = tts?.setLanguage(Locale.US)
@@ -118,20 +140,17 @@ class ExerciseActivity : AppCompatActivity(),TextToSpeech.OnInitListener  {
     private fun speakOut(text: String) {
         tts!!.speak(text, TextToSpeech.QUEUE_FLUSH, null, "")
     }
-
     private fun stopSound() {
         if (mediaPlayer.isPlaying) {
             mediaPlayer.stop()
         }
     }
-
     private fun playSound() {
         mediaPlayer.start()
     }
-
     private fun setExerciseProgressbar(){
         binding?.progressBar?.progress=exerciseProgress
-        exerciseTimer=object:CountDownTimer(30000,1000){
+        exerciseTimer=object:CountDownTimer(exerciseTimerDuration*1000,1000){
             override fun onTick(p0: Long) {
                 exerciseProgress++
                 binding?.progressBar?.progress=30-exerciseProgress
@@ -140,22 +159,24 @@ class ExerciseActivity : AppCompatActivity(),TextToSpeech.OnInitListener  {
 
             override fun onFinish() {
                 if(currentExercisePos < exerciseList?.size!! - 1){
-
+                    exerciseList!![currentExercisePos].setIsSelected(false)
+                    exerciseList!![currentExercisePos].setIsCompleted(true)
+                    exerciseAdapter!!.notifyDataSetChanged()
                     binding?.lottieAnimationView?.setAnimation("break_animation.json")
                     binding?.lottieAnimationView?.playAnimation()
                     binding?.tvUpExercise?.visibility=View.VISIBLE
                     binding?.tvUpExercise?.text="Upcoming Exercise\n"+exerciseList!![currentExercisePos+1].getName()
                     setupRestView()
                 }else {
-
-                    val intent= Intent(this@ExerciseActivity,MainActivity::class.java)
+                    finish()
+                    val intent = Intent(this@ExerciseActivity,FinishActivity::class.java)
                     startActivity(intent)
                     speakOut("Congratulation, Exercise completed")
-                    Toast.makeText(
-                        this@ExerciseActivity,
-                        "Exercise completed.",
-                        Toast.LENGTH_SHORT
-                    ).show()
+//                    Toast.makeText(
+//                        this@ExerciseActivity,
+//                        "Exercise completed.",
+//                        Toast.LENGTH_SHORT
+//                    ).show()
                 }
             }
         }.start()
@@ -171,5 +192,21 @@ class ExerciseActivity : AppCompatActivity(),TextToSpeech.OnInitListener  {
             exerciseProgress=0
         }
         binding=null
+    }
+
+    override fun onBackPressed() {
+        customDialogForBackButton()
+    }
+    private fun setupExerciseStatusRecyclerView() {
+
+        // Defining a layout manager for the recycle view
+        // Here we have used a LinearLayout Manager with horizontal scroll.
+        binding?.rvExerciseStatus?.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+
+        // As the adapter expects the exercises list and context so initialize it passing it.
+        exerciseAdapter = ExerciseStatusAdapter(exerciseList!!)
+
+        // Adapter class is attached to recycler view
+        binding?.rvExerciseStatus?.adapter = exerciseAdapter
     }
 }
