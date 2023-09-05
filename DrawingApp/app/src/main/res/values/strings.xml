@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">DrawingApp</string>
+    <string name="ImageContentDescription">image</string>
+    <string name="ColorContentDescription">Color\n</string>
+</resources>

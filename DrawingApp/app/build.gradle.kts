@@ -9,8 +9,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.drawingapp"
-        minSdk = 31
-        //noinspection EditedTargetSdkVersion
+        minSdk = 24
         targetSdk = 33
         versionCode = 1
         versionName = "1.0"
@@ -34,11 +33,13 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    buildToolsVersion = "33.0.1"
 }
 
 dependencies {
-    implementation("androidx.activity:activity-ktx:1.4.0-alpha01")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.4.0")
+    implementation("com.karumi:dexter:6.2.3")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.1")
+    implementation("androidx.core:core-ktx:1.10.1")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.9.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
