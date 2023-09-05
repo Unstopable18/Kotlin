@@ -24,15 +24,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:titleTextColor="@color/primary"
         />
-<!--    <LinearLayout-->
-<!--        android:id="@+id/ll1"-->
-<!--        android:layout_margin="16dp"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        app:layout_constraintTop_toBottomOf="@id/toolBarExercise"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        android:orientation="vertical"-->
-<!--        android:gravity="center_horizontal">-->
     <TextView
         android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
@@ -122,7 +113,7 @@
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/lottieAnimationView"
             android:layout_width="wrap_content"
-            android:layout_height="400dp"
+            android:layout_height="370dp"
             app:lottie_autoPlay="true"
             app:lottie_fileName="water_json.json"
             app:lottie_loop="true"

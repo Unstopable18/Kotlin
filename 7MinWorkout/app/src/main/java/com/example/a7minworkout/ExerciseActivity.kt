@@ -29,7 +29,7 @@ class ExerciseActivity : AppCompatActivity(),TextToSpeech.OnInitListener  {
     private var tts: TextToSpeech? = null
     private lateinit var mediaPlayer: MediaPlayer
     private var soundPlaying = false
-//    private var imageView = binding?.ivGif
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,19 +50,9 @@ class ExerciseActivity : AppCompatActivity(),TextToSpeech.OnInitListener  {
 
     }
     private fun setupRestView(){
-//        binding?.ll1?.visibility=View.VISIBLE
-//        binding?.ivGif?.visibility=View.VISIBLE
-//        binding?.tvTitle?.visibility=View.VISIBLE
+
         binding?.tvTitle?.text="GET READY FOR EXERCISE"
         binding?.mainConstraint?.setBackgroundResource(R.drawable.background_img)
-//        binding?.flProgressBar?.visibility= View.VISIBLE
-
-//        val layoutParams = binding?.tvTitle?.layoutParams as ConstraintLayout.LayoutParams
-//        layoutParams.bottomToTop = binding?.flProgressBar?.id!!
-//        binding?.tvTitle?.layoutParams=layoutParams
-//        binding?.tvTitle?.requestLayout()
-//        binding?.ll2?.visibility=View.GONE
-//        binding?.flExerciseBar?.visibility= View.GONE
 
         if(restTimer!=null){
             restTimer?.cancel()
@@ -73,30 +63,16 @@ class ExerciseActivity : AppCompatActivity(),TextToSpeech.OnInitListener  {
     }
 
     private fun setupExerciseView(){
-//        binding?.ll1?.visibility=View.GONE
-//        binding?.ivGif?.visibility=View.VISIBLE
-//        binding?.tvTitle?.visibility=View.VISIBLE
-//        binding?.flProgressBar?.visibility= View.VISIBLE
+
         binding?.mainConstraint?.setBackgroundResource(R.drawable._459163)
         binding?.progressBar?.max=30
         binding?.tvTimer?.text=30.toString()
 
         binding?.tvUpExercise?.visibility=View.GONE
         binding?.tvTitle?.text=exerciseList!![currentExercisePos].getName()
-//        binding?.flExerciseBar?.visibility= View.VISIBLE
 
-//        binding?.ll2?.visibility=View.VISIBLE
-//        binding?.ivGifExercise?.visibility=View.VISIBLE
-//        binding?.lottieAnimationView?.visibility=View.VISIBLE
         binding?.lottieAnimationView?.setAnimation(exerciseList!![currentExercisePos].getImage())
         binding?.lottieAnimationView?.playAnimation()
-//        binding?.ivGif?.visibility=View.VISIBLE
-//        binding?.ivGif?.setImageResource(exerciseList!![currentExercisePos].getImage())
-
-//        val layoutParams = binding?.tvTitle?.layoutParams as ConstraintLayout.LayoutParams
-//        layoutParams.bottomToTop = binding?.flExerciseBar?.id!!
-//        binding?.tvTitle?.layoutParams=layoutParams
-//        binding?.tvTitle?.requestLayout()
 
         if(exerciseTimer!=null){
             exerciseTimer?.cancel()
@@ -164,26 +140,20 @@ class ExerciseActivity : AppCompatActivity(),TextToSpeech.OnInitListener  {
 
             override fun onFinish() {
                 if(currentExercisePos < exerciseList?.size!! - 1){
-//                    binding?.ivGif?.visibility=View.GONE
-//                    Picasso.get().load(R.drawable.break_animation).into(imageView)
-//                    binding?.ivGif?.setImageResource(R.drawable.animation_break)
 
-//                    binding?.lottieAnimationView?.visibility=View.VISIBLE
                     binding?.lottieAnimationView?.setAnimation("break_animation.json")
                     binding?.lottieAnimationView?.playAnimation()
                     binding?.tvUpExercise?.visibility=View.VISIBLE
                     binding?.tvUpExercise?.text="Upcoming Exercise\n"+exerciseList!![currentExercisePos+1].getName()
                     setupRestView()
                 }else {
-//                    binding?.ivGif?.visibility=View.VISIBLE
-//                    binding?.ivGif?.setImageResource(R.drawable.water_fill)
-//                    setupRestView()
+
                     val intent= Intent(this@ExerciseActivity,MainActivity::class.java)
                     startActivity(intent)
                     speakOut("Congratulation, Exercise completed")
                     Toast.makeText(
                         this@ExerciseActivity,
-                        "30 sec Exercise completed.",
+                        "Exercise completed.",
                         Toast.LENGTH_SHORT
                     ).show()
                 }
