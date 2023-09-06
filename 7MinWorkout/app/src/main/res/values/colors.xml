@@ -7,7 +7,7 @@
     <color name="primaryDark">#B2212121</color>
     <color name="colorAccent">#008F24</color>
     <color name="lightGray">#C4C4C4</color>
-    <color name="toolbarColorControlNormal">#000000</color>
+    <color name="toolbarColorControlNormal">#FFFFFFFF</color>
     <color name="yellow">#FFF50A</color>
 
     <color name="round_gradient_button_start_color">#F09819</color>

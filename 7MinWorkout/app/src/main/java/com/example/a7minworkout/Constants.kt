@@ -55,13 +55,13 @@ object Constants {
                 isSelected = false
             )
         exerciseList.add(pushup)
-        val cobras =
+        val reverse_crunches =
             ExerciseModel(
-                8, "Cobra", "cobra.json",
+                8, "Reverse Crunches", "reverse_crunches.json",
                 isCompleted = false,
                 isSelected = false
             )
-        exerciseList.add(cobras)
+        exerciseList.add(reverse_crunches)
         val frogPress =
             ExerciseModel(
                 9, "Frog Press", "frog_press.json",
@@ -84,13 +84,7 @@ object Constants {
                 isSelected = false
             )
         exerciseList.add(lunge)
-        val reverse_crunches =
-            ExerciseModel(
-                12, "Reverse Crunches", "reverse_crunches.json",
-                isCompleted = false,
-                isSelected = false
-            )
-        exerciseList.add(reverse_crunches)
+
 
 
 

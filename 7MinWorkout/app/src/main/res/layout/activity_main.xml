@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="@dimen/main_screen_main_layout_padding"
     android:background="@drawable/background_img"
     tools:context=".MainActivity">
 
@@ -31,7 +30,7 @@
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:background="@drawable/item_circular_color_accent_border_ripple_bg"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/flBMI"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgView"
@@ -45,7 +44,31 @@
             android:text="@string/start"
             android:fontFamily="sans-serif-smallcaps"
             android:textColor="@color/white"
-            android:textSize="30sp"
+            android:textSize="34sp"
+            android:textStyle="bold"
+
+            />
+    </FrameLayout>
+    <FrameLayout
+        android:id="@+id/flBMI"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:background="@drawable/item_circular_color_accent_border_ripple_bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/flStart"
+        app:layout_constraintVertical_bias="0.39"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/bmi"
+            android:fontFamily="sans-serif-smallcaps"
+            android:textColor="@color/white"
+            android:textSize="34sp"
             android:textStyle="bold"
 
             />

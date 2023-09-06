@@ -20,11 +20,20 @@
         android:id="@+id/toolBarExercise"
         android:layout_width="match_parent"
         android:layout_height="?android:actionBarSize"
-        android:theme="@style/ToolBarTheme"
+        android:gravity="end"
         android:fontFamily="sans-serif-smallcaps"
         app:layout_constraintTop_toTopOf="parent"
-        app:titleTextColor="@color/primary"
-        />
+        >
+<!--        <TextView-->
+<!--            android:id="@+id/countdown_timer"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Countdown: 00:00"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:textSize="18sp"-->
+<!--            android:layout_gravity="end"/>-->
+
+    </androidx.appcompat.widget.Toolbar>
     <TextView
         android:id="@+id/tvTitle"
         android:layout_width="wrap_content"

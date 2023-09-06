@@ -8,6 +8,8 @@ import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.os.Handler
+import android.os.Looper
 import android.speech.tts.TextToSpeech
 import android.util.Log
 import android.view.View
@@ -17,6 +19,7 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.a7minworkout.databinding.ActivityExerciseBinding
 import com.example.a7minworkout.databinding.DialogCustomBackConfirmationBinding
+import kotlinx.coroutines.delay
 import java.util.Locale
 
 
@@ -31,8 +34,8 @@ class ExerciseActivity : AppCompatActivity(),TextToSpeech.OnInitListener  {
     private var tts: TextToSpeech? = null
     private lateinit var mediaPlayer: MediaPlayer
     private var soundPlaying = false
-    private var exerciseTimerDuration:Long = 1
-    private var restTimerDuration:Long = 1
+    private var exerciseTimerDuration:Long = 30
+    private var restTimerDuration:Long = 10
     private var exerciseAdapter: ExerciseStatusAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,9 +53,44 @@ class ExerciseActivity : AppCompatActivity(),TextToSpeech.OnInitListener  {
             customDialogForBackButton()
         }
         binding?.lottieAnimationView?.playAnimation()
+        startCountdownAfterDelay(10)
         setupRestView()
         setupExerciseStatusRecyclerView()
+    }
+    private fun startCountdownAfterDelay(delaySeconds: Int) {
+        val handler = Handler(Looper.getMainLooper())
 
+        handler.postDelayed({
+            // Start the countdown timer
+            startCountdownTimer(7)
+        }, (delaySeconds * 1000).toLong())
+    }
+
+
+    private fun startCountdownTimer(minutes: Int) {
+        // Replace this with your countdown timer logic
+        // Here, we'll update the TextView every second for simplicity
+        var secondsRemaining = minutes * 60
+
+        val countdownRunnable = object : Runnable {
+            override fun run() {
+                val minutes = secondsRemaining / 60
+                val seconds = secondsRemaining % 60
+
+//                binding?.countdownTimer?.text = "Countdown: ${String.format("%02d:%02d", minutes, seconds)}"
+                binding?.toolBarExercise?.title = "Countdown: ${String.format("%02d:%02d", minutes, seconds)}"
+
+                if (secondsRemaining > 0) {
+                    secondsRemaining--
+//                    binding?.countdownTimer?.postDelayed(this, 1000)
+                    binding?.toolBarExercise?.postDelayed(this,1050)
+                } else {
+//                    binding?.countdownTimer?.text = "Countdown: 00:00"
+                    binding?.toolBarExercise?.title = "Countdown: 00:00"
+                }
+            }
+        }
+        binding?.toolBarExercise?.post(countdownRunnable)
     }
 
     private fun customDialogForBackButton() {
@@ -87,7 +125,7 @@ class ExerciseActivity : AppCompatActivity(),TextToSpeech.OnInitListener  {
     private fun setupExerciseView(){
 
         binding?.mainConstraint?.setBackgroundResource(R.drawable._459163)
-        binding?.progressBar?.max=30
+        binding?.progressBar?.max=31
         binding?.tvTimer?.text=30.toString()
 
         binding?.tvUpExercise?.visibility=View.GONE
@@ -106,7 +144,7 @@ class ExerciseActivity : AppCompatActivity(),TextToSpeech.OnInitListener  {
     private fun setRestProgressbar(){
 
         binding?.progressBar?.progress=restProgress
-        restTimer=object:CountDownTimer(restTimerDuration*1100,1100){
+        restTimer=object:CountDownTimer(restTimerDuration*1000,1050){
             override fun onTick(p0: Long) {
                 restProgress++
                 binding?.progressBar?.progress=11-restProgress
@@ -119,10 +157,13 @@ class ExerciseActivity : AppCompatActivity(),TextToSpeech.OnInitListener  {
             override fun onFinish() {
                 stopSound()
                 currentExercisePos++
-                exerciseList!![currentExercisePos].setIsSelected(true) // Current Item is selected
-                exerciseAdapter!!.notifyDataSetChanged() // Notified the current item to adapter class to reflect it into UI.
-                setupExerciseView()
-                Toast.makeText(this@ExerciseActivity, "Lets start the Exercise.", Toast.LENGTH_SHORT).show()
+                exerciseList!![currentExercisePos].setIsSelected(true)
+                exerciseAdapter!!.notifyDataSetChanged()
+                val handler = Handler(Looper.getMainLooper())
+                handler.postDelayed({
+                    setupExerciseView()
+                }, 1050)
+//                Toast.makeText(this@ExerciseActivity, "Lets start the Exercise.", Toast.LENGTH_SHORT).show()
             }
         }.start()
     }
@@ -150,7 +191,7 @@ class ExerciseActivity : AppCompatActivity(),TextToSpeech.OnInitListener  {
     }
     private fun setExerciseProgressbar(){
         binding?.progressBar?.progress=exerciseProgress
-        exerciseTimer=object:CountDownTimer(exerciseTimerDuration*1000,1000){
+        exerciseTimer=object:CountDownTimer(exerciseTimerDuration*1000,1050){
             override fun onTick(p0: Long) {
                 exerciseProgress++
                 binding?.progressBar?.progress=30-exerciseProgress
@@ -162,11 +203,16 @@ class ExerciseActivity : AppCompatActivity(),TextToSpeech.OnInitListener  {
                     exerciseList!![currentExercisePos].setIsSelected(false)
                     exerciseList!![currentExercisePos].setIsCompleted(true)
                     exerciseAdapter!!.notifyDataSetChanged()
-                    binding?.lottieAnimationView?.setAnimation("break_animation.json")
-                    binding?.lottieAnimationView?.playAnimation()
-                    binding?.tvUpExercise?.visibility=View.VISIBLE
-                    binding?.tvUpExercise?.text="Upcoming Exercise\n"+exerciseList!![currentExercisePos+1].getName()
-                    setupRestView()
+                    val handler = Handler(Looper.getMainLooper())
+                    handler.postDelayed({
+                        // Put the code you want to execute after the delay here
+                        binding?.lottieAnimationView?.setAnimation("break_animation.json")
+                        binding?.lottieAnimationView?.playAnimation()
+                        binding?.tvUpExercise?.visibility=View.VISIBLE
+                        binding?.tvUpExercise?.text="Upcoming Exercise\n"+exerciseList!![currentExercisePos+1].getName()
+                        setupRestView()
+                    }, 1050)
+
                 }else {
                     finish()
                     val intent = Intent(this@ExerciseActivity,FinishActivity::class.java)
